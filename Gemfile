@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'factory_bot_rails'
+gem 'faker'
 # Figaro was written to make it easy to securely configure Rails applications.
 gem 'figaro'
 
@@ -49,7 +51,9 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
+  gem 'rspec-rails', '4.0.0.beta3'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
