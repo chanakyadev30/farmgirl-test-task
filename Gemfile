@@ -28,10 +28,18 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# ActiveInteraction manages application-specific business logic
+gem 'active_interaction', '~> 4.0'
+# Cocoon makes it easier to handle nested forms.
+gem 'cocoon'
 gem 'factory_bot_rails'
 gem 'faker'
 # Figaro was written to make it easy to securely configure Rails applications.
 gem 'figaro'
+# Haml-rails provides Haml generators for Rails 5.
+gem 'haml-rails', '~> 2.0'
+# Rails forms made easy.
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,3 +68,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+# will_paginate is a pagination library
+gem 'will_paginate', '~> 3.1.0'
+# Integrates the Twitter Bootstrap pagination component with the will_paginate
+gem 'will_paginate-bootstrap4'
