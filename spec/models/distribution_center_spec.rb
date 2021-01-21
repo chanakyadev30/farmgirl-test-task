@@ -7,6 +7,10 @@ RSpec.describe DistributionCenter, type: :model do
     it { is_expected.to have_db_column(:name).of_type(:string).with_options(null: false) }
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_many(:orders) }
+  end
+
   describe 'Validations' do
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
