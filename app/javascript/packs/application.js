@@ -7,8 +7,20 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("bootstrap")
+require("jquery")
+require("@nathanvda/cocoon")
 
+window.jQuery = $;
+window.$ = $;
 
+require("flatpickr")
+import flatpickr from "flatpickr";
+document.addEventListener("turbolinks:load", () => {
+  $('[data-tooltip-display="true"]').tooltip(),
+  flatpickr("[class='flatpickr']", {})
+})
+require("../stylesheets/application.scss")
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
