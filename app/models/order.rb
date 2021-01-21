@@ -1,5 +1,7 @@
 class Order < ApplicationRecord
   # associations
+  has_many :order_items, dependent: :destroy
+  has_many :products, through: :order_items
   belongs_to :fulfiller, polymorphic: true
 
   # constants

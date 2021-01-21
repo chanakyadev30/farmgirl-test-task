@@ -9,6 +9,11 @@ RSpec.describe Product, type: :model do
     it { is_expected.to have_db_column(:description).of_type(:text) }
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_many(:order_items) }
+    it { is_expected.to have_many(:orders) }
+  end
+
   describe 'Validations' do
     it 'is valid with valid attributes' do
       expect(subject).to be_valid

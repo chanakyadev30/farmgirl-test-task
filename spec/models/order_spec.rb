@@ -9,6 +9,11 @@ RSpec.describe Order, type: :model do
     it { is_expected.to have_db_column(:fulfiller_type).of_type(:string) }
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_many(:order_items) }
+    it { is_expected.to have_many(:products) }
+  end
+
   describe 'Validations' do
     it { is_expected.to define_enum_for(:status).with_values(Order.statuses.keys) }
 
