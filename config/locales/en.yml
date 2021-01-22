@@ -38,15 +38,22 @@ en:
       add: "Add new item"
       remove: "Remove"
       remove_confirmation: Are you sure?
+  errors:
+    no_items_selected: Please add an order item
   orders:
     all: All Orders
     create_order: Create Order
+    create:
+      success: Order created successfully!
+      error: Order could not be saved!
+      duplicate_products: Order has duplicate products!
     details:
       fulfiller: Fulfiller
       items: Products
       number: Order ID
       quantity: Quantity
       status: Status
+    fulfill_order: Fulfill
     index:
       details:
         average: Average
@@ -54,4 +61,7 @@ en:
       no_order: Orders not found
       title: Farmgirl
       view_report: View Report
+    new:
+      product: Select Product
+      quantity: Select Quantity
   title: Farmgirl

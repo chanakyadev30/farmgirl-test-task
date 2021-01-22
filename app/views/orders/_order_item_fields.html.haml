@@ -1,0 +1,7 @@
+.nested-fields
+  .form-group
+    = f.label t('orders.new.product')
+    = f.collection_select :product_id, Product.all, :id, :name, required: true
+    = f.label t('orders.new.quantity')
+    = f.number_field :quantity, required: true
+    = link_to_remove_association t('cocoon.order_item.remove'), f, data: {confirm: t('cocoon.order_item.remove_confirmation')}, class: 'btn btn-danger btn-xs ml-2'

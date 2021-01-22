@@ -4,6 +4,8 @@ class Order < ApplicationRecord
   has_many :products, through: :order_items
   belongs_to :fulfiller, polymorphic: true
 
+  accepts_nested_attributes_for :order_items, reject_if: :all_blank, allow_destroy: true
+
   # constants
   enum status: %i[not_fulfilled fulfilled]
   PER_PAGE = 10
@@ -14,6 +16,22 @@ class Order < ApplicationRecord
 
   # validations
   validates :status, inclusion: { in: statuses.keys }
+  validate :uniqueness_of_products, on: :create
+
+  # callbacks
+  before_validation :set_fulfiller, on: :create
+
+  # product in an order can't repeat
+  def uniqueness_of_products
+    return if order_items.length == order_items.map(&:product_id).uniq.length
+
+    errors.add(:base, I18n.t('orders.create.duplicate_products'))
+  end
+
+  # add fulfiller for the order. Either distribution center or fulfillment center
+  def set_fulfiller
+    self.fulfiller = FulfillerService.call(self)
+  end
 
   # if date passed, gives total quantity for the date otherwise overall quantity
   def self.total_quantity(date = nil)

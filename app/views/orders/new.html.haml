@@ -1,0 +1,18 @@
+.bg-light.pb-6
+  .container
+    .header
+      .header-body
+        .row.align-items-center
+          .col
+            %h1.header-title
+              = t('orders.create_order')
+          .col-auto.mt-4
+            = link_to t('orders.all'), orders_path, class: "btn btn-secondary"
+    = simple_form_for @order do |f|
+      = render 'shared/error_messages', object: f.object
+      %div
+        = f.simple_fields_for :order_items do |order_item|
+          = render 'order_item_fields', f: order_item
+        %div
+          = link_to_add_association t('cocoon.order_item.add'), f, :order_items, {class: 'btn btn-success mb-2'}
+      = f.button :submit, class: 'btn btn-primary'
