@@ -1,0 +1,32 @@
+.bg-light.pb-6
+  .container
+    .header
+      .header-body
+        .row.align-items-center
+          .col-8
+            %h1.header-title
+              = t('orders.show.title')
+    %div
+      %strong
+        = t('orders.details.items')
+        \:
+      = @order.product_names
+      %br
+      %strong
+        = t('orders.details.quantity')
+        \:
+      = @order.quantity
+      %br
+      %strong
+        = t('orders.details.fulfiller')
+        \:
+      = @order.fulfiller.name
+      %br
+      %strong
+        = t('orders.details.status')
+        \:
+      = @order.status.humanize(capitalize: true)
+      %div
+        - unless @order.fulfilled?
+          = link_to t('orders.fulfill_order'), fulfill_order_path(@order), method: :put, class: "btn btn-primary"
+        = link_to t('orders.all'), orders_path, class: "btn btn-secondary"

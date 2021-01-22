@@ -40,6 +40,7 @@ en:
       remove_confirmation: Are you sure?
   errors:
     no_items_selected: Please add an order item
+    not_found: Record not found
   orders:
     all: All Orders
     create_order: Create Order
@@ -64,4 +65,7 @@ en:
     new:
       product: Select Product
       quantity: Select Quantity
+    show: 
+      title: Order Details
+      not_found: Order not found
   title: Farmgirl

@@ -27,12 +27,22 @@ class OrdersController < ApplicationController
   end
 
   # GET /orders/1
-  def show; end
+  def show
+    @order = find_order
+  end
 
   # PUT /orders/fulfill
   def fulfill; end
 
   private
+
+  def find_order
+    outcome = FindOrder.run(params)
+
+    raise ActiveRecord::RecordNotFound unless outcome.valid?
+
+    outcome.result
+  end
 
   def order_params
     params.require(:order).permit(order_items_attributes: %i[product_id quantity])
