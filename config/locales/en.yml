@@ -30,4 +30,28 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  cocoon:
+    defaults:
+      add: "Add record"
+      remove: "Remove record"
+    order_item:
+      add: "Add new item"
+      remove: "Remove"
+      remove_confirmation: Are you sure?
+  orders:
+    all: All Orders
+    create_order: Create Order
+    details:
+      fulfiller: Fulfiller
+      items: Products
+      number: Order ID
+      quantity: Quantity
+      status: Status
+    index:
+      details:
+        average: Average
+        total: Total
+      no_order: Orders not found
+      title: Farmgirl
+      view_report: View Report
+  title: Farmgirl

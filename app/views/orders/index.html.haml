@@ -1,0 +1,15 @@
+.bg-light.pb-6
+  .container
+    .header
+      .header-body
+        .row.align-items-center
+          .col
+            %h1.header-title
+              = t('orders.index.title')
+            = form_with url: orders_path, method: :get, class: "mb-4"  do |f|
+              = f.date_field :date, value: params[:date] || Date.current, format: "yyyy-mm--dd", class: 'flatpickr'
+              = f.submit t('orders.index.view_report')
+          .col-auto.mt-4
+            = link_to t('orders.create_order'), new_order_path, class: "btn btn-primary"
+  #orders
+    = render partial: 'orders/orders', locals: {orders: @orders, date: @date}

@@ -1,0 +1,63 @@
+.container
+  .row
+    / Total
+    .col-12.col-lg-6.col-xl
+      .card.text-whites
+        .card-body
+          .row.align-items-center
+            .col
+              %h6.card-title.text-uppercase.opacity-50.mb-2
+                = t('orders.index.details.total')
+              %span.h2.mb-0= Order.total_quantity(@date)
+            .col-auto
+              %span.h2.fe.fe-clock.opacity-50.mb-0
+    / Average
+    .col-12.col-lg-6.col-xl
+      .card
+        .card-body
+          .row.align-items-center
+            .col
+              %h6.card-title.text-uppercase.text-muted.mb-2
+                = t('orders.index.details.average')
+              %span.h2.mb-0= number_with_precision(Order.total_average(@date), precision: 2) || 0
+            .col-auto
+              %span.h2.fe.fe-check-circle.text-muted.mb-0
+.container
+  .row.mt-4
+    .col-12
+      %h2 Orders
+    .col-12
+      .card
+        .table-responsive.mb-0
+          %table.table.table-sm.table-nowrap.card-table
+            %thead
+              %tr
+                %th= t('orders.details.number')
+                %th= t('orders.details.items')
+                %th= t('orders.details.quantity')
+                %th= t('orders.details.fulfiller')
+                %th= t('orders.details.status')
+                %th
+            %tbody.font-size-base
+              - if @orders.exists?
+                - orders.each do |order|
+                  %tr
+                    %td
+                      = link_to order.id, order_path(order)
+                    %td
+                      = order.product_names
+                    %td
+                      = order.quantity
+                    %td
+                      = order.fulfiller.name
+                    %td
+                      = order.status.humanize(capitalize: true)
+                    %td
+                      - if order.not_fulfilled?
+                        = link_to t('orders.fulfill_order'), fulfill_order_path(order), method: :put, class: "btn btn-sm btn-info"
+              - else
+                %tr
+                  %td.pt-4{:align => "center", :colspan => "12"}= t('orders.index.no_order')
+    .row.mt-2
+      .col-12
+        = js_will_paginate @orders, renderer: WillPaginate::ActionView::LinkRenderer, list_classes: %w(pagination justify-content-end),aria_label: 'Page Navigation', previous_label: '&laquo; Previous &nbsp;&nbsp;', next_label: '&nbsp;&nbsp; Next &raquo;'
