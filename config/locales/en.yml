@@ -73,4 +73,7 @@ en:
     show: 
       title: Order Details
       not_found: Order not found
+  test:
+    orders:
+      fulfilled_status: fulfilled
   title: Farmgirl
