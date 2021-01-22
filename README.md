@@ -1,24 +1,44 @@
-# README
+# FarmGirl-Test-Task
+**FarmGirl-Test-Task** is e-commerce solution built with Ruby on Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Clone to local
+2. cd farmgirl-test-task
+3. Install dependencies listed below
+4. Create config/application.yml
+7. Migrate and Seed
+8. Start server
 
-Things you may want to cover:
-
-* Ruby version
+## Dependencies
+* Ruby version: `2.7.2`
+* Rails Version: `6.0.3`
 
 * System dependencies
+Postgres
 
-* Configuration
+## Configuration
+```create config/application.yml```
 
-* Database creation
+```gem install bundler && bundle install```
 
-* Database initialization
+```yarn install```
 
-* How to run the test suite
+## Setup and Start the Applicaton
 
-* Services (job queues, cache servers, search engines, etc.)
+### Database Setup
+**Database creation**
 
-* Deployment instructions
+```
+rake db:create
+```
 
-* ...
+**Database Seed**
+
+```
+rake db:seed
+```
+
+### Run the rails server
+```rails s```
+
+### Run the Test Suit
+```rspec```
