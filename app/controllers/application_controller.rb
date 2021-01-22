@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: -> { render_error(t('errors.not_found')) }
   rescue_from ActionController::ParameterMissing, with: :handle_missing_params
+  rescue_from Errors::InvalidDateError, with: -> { render_error(t('errors.invalid_date')) }
 
   private
 

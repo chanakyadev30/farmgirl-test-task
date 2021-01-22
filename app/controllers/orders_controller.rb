@@ -58,6 +58,6 @@ class OrdersController < ApplicationController
 
   # parsed date params, use today if not a valid date
   def set_date
-    @date = Date.current
+    @date = DateParserService.call(params[:date]) || Date.current
   end
 end

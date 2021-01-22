@@ -41,6 +41,7 @@ en:
   errors:
     no_items_selected: Please add an order item
     not_found: Record not found
+    invalid_date: Please input a valid date format
   orders:
     all: All Orders
     create_order: Create Order
