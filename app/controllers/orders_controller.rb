@@ -32,7 +32,15 @@ class OrdersController < ApplicationController
   end
 
   # PUT /orders/fulfill
-  def fulfill; end
+  def fulfill
+    outcome = FulfillOrder.run(order: find_order)
+
+    if outcome.valid?
+      redirect_to orders_path, notice: t('orders.fulfill.success')
+    else
+      redirect_to orders_path, alert: outcome.errors.full_messages.to_sentence
+    end
+  end
 
   private
 

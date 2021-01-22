@@ -54,6 +54,10 @@ en:
       number: Order ID
       quantity: Quantity
       status: Status
+    fulfill:
+      success: Order fulfilled successfully!
+      error: Order could not be fulfilled!
+      already_fulfilled: Order status is already fulfilled!
     fulfill_order: Fulfill
     index:
       details:
