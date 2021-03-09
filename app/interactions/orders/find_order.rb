@@ -1,5 +1,5 @@
 class FindOrder < ActiveInteraction::Base
-  string :id
+  integer :id
 
   validates :id, presence: true
 

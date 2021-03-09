@@ -4,7 +4,7 @@ RSpec.describe OrderItem, type: :model do
   subject { create(:order_item) }
 
   describe 'Schema' do
-    it { is_expected.to have_db_column(:order_id).of_type(:uuid) }
+    it { is_expected.to have_db_column(:order_id).of_type(:integer) }
     it { is_expected.to have_db_column(:product_id).of_type(:integer) }
     it { is_expected.to have_db_column(:quantity).of_type(:integer) }
   end

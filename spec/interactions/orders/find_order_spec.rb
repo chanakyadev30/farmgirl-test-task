@@ -27,16 +27,16 @@ describe FindOrder do
   describe '#validates' do
     context 'without bang operator' do
       it 'should in validates with attribute' do
-        inputs[:id] = ''
+        inputs[:id] = nil
         expect(outcome).to_not be_valid
         expect(errors).to have_key :id
-        expect(errors[:id]).to include "can't be blank"
+        expect(errors[:id]).to include 'is required'
       end
     end
 
     context 'with bang operator' do
       it 'should in validates with attribute' do
-        inputs[:id] = ''
+        inputs[:id] = nil
         expect { outcome! }.to raise_error ActiveInteraction::InvalidInteractionError
       end
     end
