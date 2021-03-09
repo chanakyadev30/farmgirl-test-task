@@ -1,44 +1,40 @@
-# FarmGirl-Test-Task
-**FarmGirl-Test-Task** is e-commerce solution built with Ruby on Rails.
-
-1. Clone to local
-2. cd farmgirl-test-task
-3. Install dependencies listed below
-4. Create config/application.yml
-7. Migrate and Seed
-8. Start server
-
 ## Dependencies
 * Ruby version: `2.7.2`
 * Rails Version: `6.0.3`
+* Yarn Version: `1.22.10`
+* Node Version: `15.7.0`
 
-* System dependencies
-Postgres
-
-## Configuration
-```create config/application.yml```
-
-```gem install bundler && bundle install```
-
-```yarn install```
-
-## Setup and Start the Applicaton
-
-### Database Setup
-**Database creation**
+## Configuration and Setup
 
 ```
-rake db:create
+git clone https://github.com/chanakyadev30/farmgirl-test-task.git
 ```
 
-**Database Seed**
-
 ```
-rake db:seed
+cd farmgirl-test-task
 ```
 
-### Run the rails server
-```rails s```
+```
+create config/application.yml
+```
+
+```
+gem install bundler && bundle install
+```
+
+```
+yarn install
+```
+
+```
+rake db:create && rake db:migrate && rake db:seed
+```
+
+```
+rails s
+```
 
 ### Run the Test Suit
-```rspec```
+```
+rspec
+```
